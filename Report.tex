@@ -44,6 +44,46 @@ There are 43 attributes in total, where 42 are the input features, `Score' is an
 \section{Intrusion Detection}
 There are various techniques that can be applied for Intrusion Detection. Liao et al. \cite{b2} identify three subclasses of intrusion detection methodologies: Signature-based Detection (SD), Anomaly-based Detection (AD) and Stateful Protocol Analysis (SPA). For our intrusion detection task, we will use a Signature-based Detection technique. A signature can be described as a pattern that denotes a known attack or threat. Signature-base Detection is used to identify such patterns by comparing them against normal or expected behavior. Since the knowledge gathered from prior attacks and system vulnerabilities are utilized to find more possibly harmful behavior, SD is also known as Knowledge-based Detection or Misuse Detection. It is one of the simplest and most effective method to detect any forms of anticipated attacks.
 
+\section{Exploratory Data Analysis}
+We carry out various data analysis tasks on the NSL-KDD dataset in order to help us understand the data better. There are 43 columns in the dataset, out of which the `attack' field contains the type of attacks detected in the network. There are 22 different types of attacks and a \emph{normal} value for no attack. The types of network attacks and their occurance in the dataset is shown in Table \ref{tab1}
+
+\begin{table}[htbp]
+\caption{Types of Network Attacks}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Type of Attack & Count \\
+\hline
+normal (None)	&	67342	\\
+neptune	&	41214	\\
+satan	&	3633	\\
+ipsweep	&	3599	\\
+portsweep	&	2931	\\
+smurf	&	2646	\\
+nmap	&	1493	\\
+back	&	956	\\
+teardrop	&	892	\\
+warezclient	&	890	\\
+pod	&	201	\\
+guess_passwd	&	53	\\
+buffer_overflow	&	30	\\
+warezmaster	&	20	\\
+land	&	18	\\
+imap	&	11	\\
+rootkit	&	10	\\
+loadmodule	&	9	\\
+ftp_write	&	8	\\
+multihop	&	7	\\
+phf	&	4	\\
+perl	&	3	\\
+spy	&	2	\\
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+
 
 \section{Implementation}
 

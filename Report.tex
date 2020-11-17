@@ -36,6 +36,10 @@ An intrusion is an attempt to compromise Confidentiality, Integrity and Availabi
 \section{Dataset}
 NSL-KDD dataset was released as a new and improved version of KDD'99 dataset by the University of New Brunswick. It is used as a benchmark data to evaluate various intrusion detection methods on modern-day network systems.
 The dataset contains of four different subsets: KDDTrain+, KDDTest+, KDDTrain+\_20Percentand KDDTest+\_20Percent. The first two subsets contain all of the train and test sets while the latter subsets contain only 20\% of the train and test sets respectively.
+For the purpose of this experiment, we will use the KDDTrain+ and KDDTest+ datasets and refer to them as train and test sets respectively.
+The dataset consists of internet traffic records encountered by a real Intrusion Detection System.
+
+There are 43 attributes in total, where 42 are the input features, 'Score` is an field denoting the difficulty of classification and a binary class 'Label` that classifies the traffic input into any one of the two labels: Normal or Attack. There are four distinct types of attacks that can be identified: Denial of Service (DoS), Probe, User to Root (U2R) and Remote to Local (R2L).
 
 
 

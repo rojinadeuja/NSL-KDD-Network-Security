@@ -146,10 +146,14 @@ After the data preprocessing, we reduce the 42 feature sets into 11 selected inp
 \item service\_private : Destination network service used - $private$.
 \item dst\_host\_count: Number of connections having the same destination host IP address.
 \item service\_domain\_u: Destination network service used - $domain\_u$.
-\item srv\_rerror\_rate: The percentage of connections that have activated the \emph{flag} as $REJ$, among the connections aggregated in \emph{srv\_count}.
+\item srv\_rerror\_rate: The percentage of connections that have activated the \emph{flag} as \emph{REJ}, among the connections aggregated in \emph{srv\_count}.
 \end{itemize}
 
+
+Since this is a Binary classification problem, we compare the performance of various classifiers and pick the one that performs the best. We compare the performance of Logistic Regression, K Nearest Neighbors and Decision Tree Classifiers. We select Decision Tree Classifier as our benchmark model. Then, we fit the model on the training dataset using a train-test split of 80\% and 20\%. The model gives us a test accuracy of 97.97\% on the train subset. We evaluate the model on the unseen data from test subset, i.e. the KDDTest+ file. 
+
 \section{Results}
+The accuracy of predictions of the model was found to be only 77\%. This denotes that the model is overfitting on the train subset. This can be mitigated using various techniques like cross-validation, regularization or ensembeling.
 
 \section{Conclusion}
 

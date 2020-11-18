@@ -25,12 +25,13 @@ rojinadeuja33g@gmail.com}}
 \end{abstract}
 
 \begin{IEEEkeywords}
+networks, Intrusion Detection Systems, NSL-KDD, classification
 \end{IEEEkeywords}
 
 \section{Introduction}
 Network Security is an ever-expanding and highly demanding research areas in the field of Information Technology. Network security is primarily concerned with implementing a set of rules, configurations or systems that are designed to enhance the protection of critical data in any communication network. Whether it be a home network or a business network, there is always the chance of the system could be exploited if not properly secured. An established network security system can help prevent the loss, theft or unauthorized access of sensitive information.
 
-An intrusion is an attempt to compromise Confidentiality, Integrity and Availability (CIA), or to bypass the security mechanisms of a computer or network \cite{b1}. Intrusion detection is the task of monitoring various events that occur in a computer system or a communication network, and analyzing them for signs of intrusions. Intrusion detection methodologies are generally classified into three main categories: Signature-based Detection (SD), Anomaly-based Detection (AD) and Stateful Protocol Analysis (SPA). Anomaly-based Detection (AD), also known as Behavior-based Detection identifies anomalous events in the network system. An anomaly is any event that deviates from normal/known behavior. These anomalies can be identified by monitoring or evaluation regular activities, connections, hosts or users in the network over a period of time \cite{b2}.
+An intrusion is an attempt to compromise the Confidentiality, Integrity and Availability (CIA), or to bypass the security mechanisms of a computer or network \cite{b1}. Intrusion detection is the task of monitoring various events that occur in a computer system or a communication network, and analyzing them for signs of intrusions. Intrusion detection methodologies are generally classified into three main categories: Signature-based Detection (SD), Anomaly-based Detection (AD) and Stateful Protocol Analysis (SPA). Anomaly-based Detection (AD), also known as Behavior-based Detection identifies anomalous events in the network system. An anomaly is any event that deviates from normal/known behavior. These anomalies can be identified by monitoring or evaluation regular activities, connections, hosts or users in the network over a period of time \cite{b2}.
 
 \section{Literature Review}
 \section{Dataset}
@@ -39,7 +40,7 @@ The dataset contains of four different subsets: KDDTrain+, KDDTest+, KDDTrain+\_
 For the purpose of this experiment, we will use the KDDTrain+ and KDDTest+ datasets and refer to them as train and test sets respectively.
 The dataset consists of internet traffic records encountered by a real Intrusion Detection System.
 
-There are 43 attributes in total, where 42 are the input features, `Score' is an field denoting the difficulty of classification and a binary class `Label' that classifies the traffic input into any one of the two labels: Normal or Attack. There are four distinct types of attacks that can be identified: Denial of Service (DoS), Probe, User to Root (U2R) and Remote to Local (R2L).
+There are 43 attributes in total, where 42 are the input features, \emph{Score} is an field denoting the difficulty level and a binary class \emph{attack} that classifies if there has been any attack on the traffic input.
 
 \section{Intrusion Detection}
 There are various techniques that can be applied for Intrusion Detection. Liao et al. \cite{b2} identify three subclasses of intrusion detection methodologies: Signature-based Detection (SD), Anomaly-based Detection (AD) and Stateful Protocol Analysis (SPA). For our intrusion detection task, we will use a Signature-based Detection technique. A signature can be described as a pattern that denotes a known attack or threat. Signature-base Detection is used to identify such patterns by comparing them against normal or expected behavior. Since the knowledge gathered from prior attacks and system vulnerabilities are utilized to find more possibly harmful behavior, SD is also known as Knowledge-based Detection or Misuse Detection. It is one of the simplest and most effective method to detect any forms of anticipated attacks.
@@ -169,8 +170,7 @@ Accuracy	&	F1 Score	&	Precision	&	Recall	\\
 \end{table}
 
 \section{Conclusion}
-The goal of this paper was to study various types of attacks that frequently occur in a network system and design a model to identify such intrusions. We evaluated different network parameters that characterize a network system and that help identify networks that are possibly vulnerable to external attacks.
-
+The goal of this paper was to study various types of attacks that frequently occur in a network system and design a model to identify such intrusions. We evaluated different network parameters that characterize a network system and that help identify networks that are possibly vulnerable to external attacks. We were able to identify the 11 most relevant features out of the 42 input features. The accuracy of the model on the train subset was found to be 97.97\%. However, the model was not able to perform as well on the test subset with an accuracy of only 77.45\%. Thus, the model warrants an improvement to remove the overfitting problem.
 
 \begin{thebibliography}{00}
 \bibitem{b1} R. Bace, P. Mell, ``Intrusion detection systems,National Institute of Standards and

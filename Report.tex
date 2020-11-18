@@ -133,6 +133,7 @@ For the purpose of our study, we are only interested in detecting the intrusion.
 
 After specifying the target column, we perform feature selection to find the most relevant fields from the input feature set. As discussed before, we have a total of 42 input features. The feature set contains of both Numeric and Categorical fields. We use a Statistics-based approach to study the relations among the input features and their relationship with the target column. We compute the correlations of the input features with the target column. For this, we encode the categorical variables using one-hot encoding technique. We remove any columns that have a very high ($>0.9$) or a very low ($\sim 0$) correlation with the target column. Then, we select the top 15 features that are most correlated with the target column ordered by their absolute value (to account for both positive and negative correlations). We also perform a co-linearity analysis on the remaining features in order to check if there are any linearly dependent pairs of features.
 
+\section{Implementation}
 After the data preprocessing, we reduce the 42 feature sets into 11 selected input features for our model. The features are listed as:
 \begin{itemize}
 \item flag\_SF
@@ -146,8 +147,6 @@ After the data preprocessing, we reduce the 42 feature sets into 11 selected inp
 \item dst\_host\_count
 \item service\_domain\_u
 \item srv\_rerror\_rate
-
-
 \end{itemize}
 
 \section{Results}

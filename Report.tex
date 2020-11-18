@@ -89,7 +89,7 @@ spy	&	2	\\
 \label{fig1}
 \end{figure}
 
-Out of all the data, an intrusion occurred 46.5\% of the time. We further group these attack types into four main types, namely: Denial of Service (DoS), Probe, Privilege and Access attacks. Each type of attack seen in Table \ref{tab1} is classified into one of the four types. The classifications are shown in Table \ref{tab2}.
+Out of all the data, an intrusion occurred 46.5\% of the time. We further group these attack types into four main types, namely: Denial of Service (DoS), Probe, Privilege and Access attacks. Each type of attack seen in Table \ref{tab1} is classified into one of the four types. The classifications are shown in Table \ref{tab2}. If we look at the number of occurrences of these attacks by type in our dataset as shown in Fig \ref{fig2}, we can see that Denial of Service is the most post popular.
 
 \begin{table}[htbp]
 \caption{Types of Network Attacks}
@@ -118,11 +118,20 @@ worm	&		&		&	snmpguess	\\
 	\\
 \hline
 \end{tabular}
-\label{tab1}
+\label{tab2}
 \end{center}
 \end{table}
 
-\section{Implementation}
+\begin{figure}[htbp]
+\centerline{\includegraphics[height= 170 pt, width=0.50\textwidth]{External/Fig-Subclasses-of-Attacks.PNG}}
+\caption{Top 10 Most Frequent Attacks}
+\label{fig2}
+\end{figure}
+
+\section{Data Preprocessing}
+For the purpose of our study, we are only interested in detecting the intrusion. That is, we want to find out if any intrusion has occurred in the network system or not. So we approach this problem as a Binary Classification problem. The network system characteristics can denote either \emph{Normal} (No Intrusion detected) or \emph{Intrusion} (Intrusion detected). For this, we encode all \emph{normal} values from \emph{attack} column as \emph{0} which denotes no intrusion and all other \emph{attack} values as \emph{1} which denotes that there has been an intrusion. We add a new column named \emph{is\_intrusion} that will contain the aforementioned flags for each record. The column \emph{is\_intrusion} is now set as our target column.
+
+After specifying the target column, we perform feature selection to find the most relevant fields from the input feature set. As discussed before, we have a total of 42 input features. The feature set contains of both Numeric and Categorical fields. We use a Statistics-based approach to study the relations among the input features and their relationship with the target column. We compute the correlations of the input features with the target column. For this, we encode the categorical variables using one-hot encoding technique. We remove any columns that have a very high ($>0.9$) or a very low ($\sim 0$) correlation with the target column. Then, we select the top 15 features that are most correlated with the target column ordered by their absolute value (to account for both positive and negative correlations). We also perform a co-linearity analysis on the remaining features in order to check if there are any linearly dependent pairs of features.
 
 \section{Results}
 

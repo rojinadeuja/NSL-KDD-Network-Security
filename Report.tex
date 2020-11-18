@@ -136,17 +136,17 @@ After specifying the target column, we perform feature selection to find the mos
 \section{Implementation}
 After the data preprocessing, we reduce the 42 feature sets into 11 selected input features for our model. The features are listed as:
 \begin{itemize}
-\item flag\_SF: Status of the connection – SF denotes normal establishment and termination.
-\item same\_srv\_rate: The percentage of connections that were to the same service, among the connections aggregated in count.
+\item flag\_SF: Status of the connection – \emph{SF} denotes normal establishment and termination.
+\item same\_srv\_rate: The percentage of connections that were to the same service, among the connections aggregated in \emph{count}.
 \item dst\_host\_srv\_count: Number of connections having the same port number.
-\item logged\_in: The login status - 1 is successfully logged in, 0 otherwise.
-\item serror\_rate
-\item count
-\item service\_http
-\item service\_private
-\item dst\_host\_count
-\item service\_domain\_u
-\item srv\_rerror\_rate
+\item logged\_in: The login status - $1$ if successfully logged in, $0$ otherwise.
+\item serror\_rate: The percentage of connections that have activated the \emph{flag} value as $s0, s1, s2$ or $s3$, among the connections aggregated in \emph{count}.
+\item count : Number of connections to the same destination host as the current connection in the past two seconds.
+\item service\_http : Destination network service used - $http$.
+\item service\_private : Destination network service used - $private$.
+\item dst\_host\_count: Number of connections having the same destination host IP address.
+\item service\_domain\_u: Destination network service used - $domain\_u$.
+\item srv\_rerror\_rate: The percentage of connections that have activated the \emph{flag} as $REJ$, among the connections aggregated in \emph{srv\_count}.
 \end{itemize}
 
 \section{Results}

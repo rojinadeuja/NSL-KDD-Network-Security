@@ -2,7 +2,7 @@
 Network Security ML model for **Intrusion Detection** on benchmark NSL KDD dataset using **Python**.
 
 
-### For full details <a href="https://github.com/rojinadeuja/NSL-KDD-Network-Security/blob/main/NSL_KDD_Network_Security_Analysis.pdf">[View Report Here]</a>
+### <span style="color:green">For full details: <a href="https://github.com/rojinadeuja/NSL-KDD-Network-Security/blob/main/NSL_KDD_Network_Security_Analysis.pdf">[View Report Here]</a></span>
 
 <hr>
 

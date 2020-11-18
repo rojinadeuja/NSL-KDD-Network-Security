@@ -136,10 +136,10 @@ After specifying the target column, we perform feature selection to find the mos
 \section{Implementation}
 After the data preprocessing, we reduce the 42 feature sets into 11 selected input features for our model. The features are listed as:
 \begin{itemize}
-\item flag\_SF
-\item same\_srv\_rate
-\item dst\_host\_srv\_count
-\item logged\_in
+\item flag\_SF: Status of the connection – SF denotes normal establishment and termination.
+\item same\_srv\_rate: The percentage of connections that were to the same service, among the connections aggregated in count.
+\item dst\_host\_srv\_count: Number of connections having the same port number.
+\item logged\_in: The login status - 1 is successfully logged in, 0 otherwise.
 \item serror\_rate
 \item count
 \item service\_http

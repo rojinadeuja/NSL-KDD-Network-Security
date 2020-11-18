@@ -1,4 +1,4 @@
-# NSL-KDD-Network-Security
+# NSL-KDD Network Security Analysis
 Network Security ML model for **Intrusion Detection** on benchmark NSL KDD dataset using **Python**.
 
 

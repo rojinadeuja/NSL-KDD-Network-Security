@@ -138,6 +138,11 @@ For the purpose of our study, we are only interested in detecting the intrusion.
 \label{fig3}
 \end{figure}
 
+\begin{figure}[htbp]
+\centerline{\includegraphics[height= 160 pt, width=0.32\textwidth]{External/Fig-Multiclass-Distribution.PNG}}
+\caption{Distribution of various types of attacks}
+\label{fig4}
+\end{figure}
 
 After specifying the target column, we perform feature selection to find the most relevant fields from the input feature set. As discussed before, we have a total of 42 input features. The feature set contains of both Numeric and Categorical fields. We use a Statistics-based approach to study the relations among the input features and their relationship with the target column. We compute the correlations of the input features with the target column. For this, we encode the categorical variables using one-hot encoding technique. We remove any columns that have a very high ($>0.9$) or a very low ($\sim 0$) correlation with the target column. Then, we select the top 15 features that are most correlated with the target column ordered by their absolute value (to account for both positive and negative correlations). We also perform a co-linearity analysis as shown in Fig \ref{fig5} on the remaining features in order to check if there are any linearly dependent pairs of features.
 

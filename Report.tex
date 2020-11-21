@@ -154,7 +154,7 @@ After the data preprocessing, we reduce the 42 feature sets into 11 selected inp
 Since this is a Binary classification problem, we compare the performance of various classifiers and pick the one that performs the best. We compare the performance of Logistic Regression, K Nearest Neighbors and Decision Tree Classifiers. We select Decision Tree Classifier as our benchmark model. Then, we fit the model on the training dataset using a train-test split of 80\% and 20\%. The model gives us a test accuracy of 97.97\% on the train subset. We evaluate the model on the unseen data from test subset, i.e. the KDDTest+ file. 
 
 \section{Results}
-The accuracy of predictions of the model was found to be only 77.5\%. This denotes that the model is overfitting on the train subset. This can be mitigated using various techniques like cross-validation, regularization or ensembling. The performance measures reported for the model are shown in Table \ref{tab3}.
+The accuracy of predictions of the model was found to be only 77.5\%. This denotes that the model is overfitting on the train subset. This can be mitigated using various techniques like cross-validation, regularization or ensembling as suggested in \cite{b3}. The performance measures reported for the model are shown in Table \ref{tab3}.
 \begin{table}[htbp]
 \caption{Performance of model}
 \begin{center}
@@ -176,6 +176,8 @@ The goal of this paper was to study various types of attacks that frequently occ
 \bibitem{b1} R. Bace, P. Mell, ``Intrusion detection systems,National Institute of Standards and
 Technology (NIST)" , Technical Report, pp. 800-31, 2001.
 \bibitem{b2} H. Liao, C. Lin, Y. Lin and K.Tung, ``Intrusion detection system: A comprehensive review", Journal of Network and Computer Applications, vol. 36, pp.16-24, 2013.
+\bibitem{b3} Shrivas A.K. and Dewangan A.K, ``An Ensemble Model for Classification of Attacks with Feature Selection based on KDD99 and
+NSL-KDD Data Set", International Journal of Computer Applications, vol. 99, 2014.
 \end{thebibliography}
 
 \end{document}

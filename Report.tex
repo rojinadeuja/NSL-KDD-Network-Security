@@ -30,7 +30,7 @@ networks, Intrusion Detection Systems, NSL-KDD, classification
 \end{IEEEkeywords}
 
 \section{Introduction}
-Network Security is an ever-expanding and highly demanding research areas in the field of Information Technology. Network security is primarily concerned with implementing a set of rules, configurations or systems that are designed to enhance the protection of critical data in any communication network. Whether it be a home network or a business network, there is always the chance of the system could be exploited if not properly secured. An established network security system can help prevent the loss, theft or unauthorized access of sensitive information.
+Network security is primarily concerned with implementing a set of rules, configurations or systems that are designed to enhance the protection of critical data in any communication network. Whether it be a home network or a business network, there is always the chance of the system could be exploited if not properly secured. An established network security system can help prevent the loss, theft or unauthorized access of sensitive information.
 
 An intrusion is an attempt to compromise the Confidentiality, Integrity and Availability (CIA), or to bypass the security mechanisms of a computer or network \cite{b1}. Intrusion detection is the task of monitoring various events that occur in a computer system or a communication network, and analyzing them for signs of intrusions. Intrusion detection methodologies are generally classified into three main categories: Signature-based Detection (SD), Anomaly-based Detection (AD) and Stateful Protocol Analysis (SPA). Anomaly-based Detection (AD), also known as Behavior-based Detection identifies anomalous events in the network system. An anomaly is any event that deviates from normal/known behavior. These anomalies can be identified by monitoring or evaluation regular activities, connections, hosts or users in the network over a period of time \cite{b2}.
 
@@ -40,13 +40,19 @@ The dataset contains of four different subsets: KDDTrain+, KDDTest+, KDDTrain+\_
 For the purpose of this experiment, we will use the KDDTrain+ and KDDTest+ datasets and refer to them as train and test sets respectively.
 The dataset consists of internet traffic records encountered by a real Intrusion Detection System.
 
-There are 43 attributes in total, where 42 are the input features, \emph{Score} is an field denoting the difficulty level and a binary class \emph{attack} that classifies if there has been any attack on the traffic input.
+There are 43 attributes in total, where 42 are the input features, \emph{Score} is an field denoting the difficulty level and a binary class \emph{attack} that classifies if there has been any attack on the traffic input. The distribution of the class is shown in Fig \ref{fig1}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[height= 160 pt, width=0.45\textwidth]{External/Fig-Distribution-of-Network.PNG}}
+\caption{Distribution of intrusions in network}
+\label{fig1}
+\end{figure}
 
 \section{Intrusion Detection}
 There are various techniques that can be applied for Intrusion Detection. Liao et al. \cite{b2} identify three subclasses of intrusion detection methodologies: Signature-based Detection (SD), Anomaly-based Detection (AD) and Stateful Protocol Analysis (SPA). For our intrusion detection task, we will use a Signature-based Detection technique. A signature can be described as a pattern that denotes a known attack or threat. Signature-base Detection is used to identify such patterns by comparing them against normal or expected behavior. Since the knowledge gathered from prior attacks and system vulnerabilities are utilized to find more possibly harmful behavior, SD is also known as Knowledge-based Detection or Misuse Detection. It is one of the simplest and most effective method to detect any forms of anticipated attacks.
 
 \section{Exploratory Data Analysis}
-We carry out various data analysis tasks on the NSL-KDD dataset in order to help us understand the data better. There are 43 columns in the dataset, out of which the `attack' field contains the type of attacks detected in the network. There are 22 different types of attacks and a \emph{normal} value for no attack. The types of network attacks and their occurrence in the dataset is shown in Table \ref{tab1}. The most common types of attacks can be seen in the chart shown in Fig \ref{fig1}.
+We carry out various data analysis tasks on the NSL-KDD dataset in order to help us understand the data better. There are 43 columns in the dataset, out of which the `attack' field contains the type of attacks detected in the network. There are 22 different types of attacks and a \emph{normal} value for no attack. The types of network attacks and their occurrence in the dataset is shown in Table \ref{tab1}. The most common types of attacks can be seen in the chart shown in Fig \ref{fig2}.
 
 \begin{table}[htbp]
 \caption{Types of Network Attacks}
@@ -84,13 +90,13 @@ spy	&	2	\\
 \end{center}
 \end{table}
 
-\begin{figure}[htbp]
+\begin{figure}[!h]
 \centerline{\includegraphics[height= 170 pt, width=0.45\textwidth]{External/Fig-Frequency-of-Attacks.PNG}}
 \caption{Top 10 Most Frequent Attacks}
-\label{fig1}
+\label{fig2}
 \end{figure}
 
-Out of all the data, an intrusion occurred 46.5\% of the time. We further group these attack types into four main types, namely: Denial of Service (DoS), Probe, Privilege and Access attacks. Each type of attack seen in Table \ref{tab1} is classified into one of the four types. The classifications are shown in Table \ref{tab2}. If we look at the number of occurrences of these attacks by type in our dataset as shown in Fig \ref{fig2}, we can see that Denial of Service is the most post popular.
+Out of all the data, an intrusion occurred 46.5\% of the time. We further group these attack types into four main types, namely: Denial of Service (DoS), Probe, Privilege and Access attacks. Each type of attack seen in Table \ref{tab1} is classified into one of the four types. The classifications are shown in Table \ref{tab2}. If we look at the number of occurrences of these attacks by type in our dataset as shown in Fig \ref{fig3}, we can see that Denial of Service is the most post popular.
 
 \begin{table}[htbp]
 \caption{Frequency of Network Attacks}
@@ -123,16 +129,23 @@ worm	&		&		&	snmpguess	\\
 \end{center}
 \end{table}
 
-\begin{figure}[htbp]
-\centerline{\includegraphics[height= 160 pt, width=0.45\textwidth]{External/Fig-Subclasses-of-Attacks.PNG}}
-\caption{Top 10 Most Frequent Attacks}
-\label{fig2}
-\end{figure}
-
 \section{Data Preprocessing}
 For the purpose of our study, we are only interested in detecting the intrusion. That is, we want to find out if any intrusion has occurred in the network system or not. So we approach this problem as a Binary Classification problem. The network system characteristics can denote either \emph{Normal} (No Intrusion detected) or \emph{Intrusion} (Intrusion detected). For this, we encode all \emph{normal} values from \emph{attack} column as \emph{0} which denotes no intrusion and all other \emph{attack} values as \emph{1} which denotes that there has been an intrusion. We add a new column named \emph{is\_intrusion} that will contain the aforementioned flags for each record. The column \emph{is\_intrusion} is now set as our target column.
 
-After specifying the target column, we perform feature selection to find the most relevant fields from the input feature set. As discussed before, we have a total of 42 input features. The feature set contains of both Numeric and Categorical fields. We use a Statistics-based approach to study the relations among the input features and their relationship with the target column. We compute the correlations of the input features with the target column. For this, we encode the categorical variables using one-hot encoding technique. We remove any columns that have a very high ($>0.9$) or a very low ($\sim 0$) correlation with the target column. Then, we select the top 15 features that are most correlated with the target column ordered by their absolute value (to account for both positive and negative correlations). We also perform a co-linearity analysis on the remaining features in order to check if there are any linearly dependent pairs of features.
+\begin{figure}[hbt!]
+\centerline{\includegraphics[height= 160 pt, width=0.45\textwidth]{External/Fig-Subclasses-of-Attacks.PNG}}
+\caption{Distribution of various types of attacks}
+\label{fig3}
+\end{figure}
+
+After specifying the target column, we perform feature selection to find the most relevant fields from the input feature set. As discussed before, we have a total of 42 input features. The feature set contains of both Numeric and Categorical fields. We use a Statistics-based approach to study the relations among the input features and their relationship with the target column. We compute the correlations of the input features with the target column. For this, we encode the categorical variables using one-hot encoding technique. We remove any columns that have a very high ($>0.9$) or a very low ($\sim 0$) correlation with the target column. Then, we select the top 15 features that are most correlated with the target column ordered by their absolute value (to account for both positive and negative correlations). We also perform a co-linearity analysis as shown in Fig \ref{fig4} on the remaining features in order to check if there are any linearly dependent pairs of features.
+
+\begin{figure}[hbt!]
+\centerline{\includegraphics[height= 160 pt, width=0.45\textwidth]{External/Fig-Heatmap.PNG}}
+\caption{Most Correlated Features}
+\label{fig4}
+\end{figure}
+
 
 \section{Implementation}
 After the data preprocessing, we reduce the 42 feature sets into 11 selected input features for our model. The features are listed as:
@@ -149,7 +162,6 @@ After the data preprocessing, we reduce the 42 feature sets into 11 selected inp
 \item service\_domain\_u: Destination network service used - $domain\_u$.
 \item srv\_rerror\_rate: The percentage of connections that have activated the \emph{flag} as \emph{REJ}, among the connections aggregated in \emph{srv\_count}.
 \end{itemize}
-
 
 Since this is a Binary classification problem, we compare the performance of various classifiers and pick the one that performs the best. We compare the performance of Logistic Regression, K Nearest Neighbors and Decision Tree Classifiers. We select Decision Tree Classifier as our benchmark model. Then, we fit the model on the training dataset using a train-test split of 80\% and 20\%. The model gives us a test accuracy of 97.97\% on the train subset. We evaluate the model on the unseen data from test subset, i.e. the KDDTest+ file. 
 
